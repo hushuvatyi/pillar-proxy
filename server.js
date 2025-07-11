@@ -10,6 +10,9 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 
 // Проксі для /api/pillars/within
+axios.defaults.headers.common["client_id"] = "valid_client_id";
+axios.defaults.headers.common["client_secret"] = "valid_client_secret";
+console.log(process.env.PORT);
 app.get("/api/pillars/within", async (req, res) => {
   try {
     const query = req.originalUrl.split("?")[1] || "";
